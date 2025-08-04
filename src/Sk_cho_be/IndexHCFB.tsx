@@ -45,14 +45,22 @@ const IndexHCFB = () => {
   };
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-blue-50 to-green-50">
+    <div className="min-h-screen relative overflow-hidden" style={{ backgroundColor: '#E8FFD7' }}>
+      {/* Animated Background Elements */}
+      <div className="absolute inset-0 overflow-hidden pointer-events-none">
+        <div className="absolute top-20 left-10 w-32 h-32 bg-green-200 rounded-full opacity-20 animate-float"></div>
+        <div className="absolute top-40 right-20 w-24 h-24 bg-blue-200 rounded-full opacity-20 animate-float" style={{ animationDelay: '2s' }}></div>
+        <div className="absolute bottom-20 left-20 w-40 h-40 bg-yellow-200 rounded-full opacity-20 animate-float" style={{ animationDelay: '4s' }}></div>
+        <div className="absolute bottom-40 right-10 w-28 h-28 bg-pink-200 rounded-full opacity-20 animate-float" style={{ animationDelay: '1s' }}></div>
+      </div>
+
       {/* Header */}
-      <header className="bg-white shadow-lg">
+      <header className="relative bg-white/80 backdrop-blur-lg shadow-lg border-b border-green-200">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-6">
           <div className="flex justify-between items-center mb-4">
             <button
               onClick={() => navigate('/')}
-              className="flex items-center space-x-2 text-blue-600 hover:text-blue-800 transition-colors"
+              className="flex items-center space-x-2 text-green-600 hover:text-green-800 transition-colors bg-white/60 px-4 py-2 rounded-lg hover:bg-white/80"
             >
               <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" />
@@ -61,10 +69,10 @@ const IndexHCFB = () => {
             </button>
           </div>
           <div className="text-center">
-            <h1 className="text-4xl font-bold text-blue-600 mb-2">
+            <h1 className="text-4xl font-bold text-green-600 mb-2 animate-slide-up">
               🏥 Trung Tâm Sức Khỏe Trẻ Em
             </h1>
-            <p className="text-lg text-gray-600">
+            <p className="text-lg text-gray-600 animate-slide-up" style={{ animationDelay: '0.2s' }}>
               Chăm sóc sức khỏe toàn diện cho trẻ từ 1-18 tuổi
             </p>
           </div>
@@ -72,11 +80,14 @@ const IndexHCFB = () => {
       </header>
 
       {/* Main Content */}
-      <main className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+      <main className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
         {/* Hero Section */}
-        <section className="text-center mb-16">
-          <div className="bg-white rounded-2xl shadow-xl p-8 mb-8">
-            <div className="text-6xl mb-4">👨‍⚕️</div>
+        <section className="text-center mb-16 animate-slide-up">
+          <div className="bg-white/80 backdrop-blur-lg rounded-3xl shadow-xl p-8 mb-8 border border-green-200">
+            <div className="flex justify-center items-center mb-6">
+              <img src="/male_doctor.png" alt="Doctor" className="w-24 h-24 mr-4 animate-bounce-in" />
+              <img src="/female_doctor.png" alt="Doctor" className="w-24 h-24 animate-bounce-in" style={{ animationDelay: '0.3s' }} />
+            </div>
             <h2 className="text-3xl font-bold text-gray-800 mb-4">
               Theo Dõi Chỉ Số BMI Của Con Bạn
             </h2>
@@ -90,7 +101,7 @@ const IndexHCFB = () => {
         {/* BMI Calculator */}
         <section className="grid md:grid-cols-2 gap-8 mb-16">
           {/* Calculator Form */}
-          <div className="bg-white rounded-2xl shadow-xl p-8">
+          <div className="bg-white/80 backdrop-blur-lg rounded-3xl shadow-xl p-8 border border-green-200 animate-slide-up">
             <h3 className="text-2xl font-bold text-gray-800 mb-6 text-center">
               🧮 Công Cụ Tính BMI
             </h3>
@@ -106,7 +117,7 @@ const IndexHCFB = () => {
                   max="18"
                   value={age}
                   onChange={(e) => setAge(e.target.value)}
-                  className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+                  className="w-full px-4 py-3 border border-green-300 rounded-lg focus:ring-2 focus:ring-green-500 focus:border-transparent bg-white/60"
                   placeholder="Nhập tuổi của bé"
                 />
               </div>
@@ -120,7 +131,7 @@ const IndexHCFB = () => {
                   step="0.1"
                   value={weight}
                   onChange={(e) => setWeight(e.target.value)}
-                  className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+                  className="w-full px-4 py-3 border border-green-300 rounded-lg focus:ring-2 focus:ring-green-500 focus:border-transparent bg-white/60"
                   placeholder="Nhập cân nặng"
                 />
               </div>
@@ -134,7 +145,7 @@ const IndexHCFB = () => {
                   step="0.1"
                   value={height}
                   onChange={(e) => setHeight(e.target.value)}
-                  className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+                  className="w-full px-4 py-3 border border-green-300 rounded-lg focus:ring-2 focus:ring-green-500 focus:border-transparent bg-white/60"
                   placeholder="Nhập chiều cao"
                 />
               </div>
@@ -142,13 +153,13 @@ const IndexHCFB = () => {
               <div className="flex space-x-4">
                 <button
                   onClick={calculateBMI}
-                  className="flex-1 bg-blue-600 text-white py-3 px-6 rounded-lg hover:bg-blue-700 transition duration-300 font-medium"
+                  className="flex-1 bg-green-600 text-white py-3 px-6 rounded-lg hover:bg-green-700 transition duration-300 font-medium hover:scale-105 transform"
                 >
                   Tính BMI
                 </button>
                 <button
                   onClick={resetForm}
-                  className="flex-1 bg-gray-500 text-white py-3 px-6 rounded-lg hover:bg-gray-600 transition duration-300 font-medium"
+                  className="flex-1 bg-gray-500 text-white py-3 px-6 rounded-lg hover:bg-gray-600 transition duration-300 font-medium hover:scale-105 transform"
                 >
                   Làm mới
                 </button>
@@ -157,24 +168,24 @@ const IndexHCFB = () => {
           </div>
 
           {/* Results */}
-          <div className="bg-white rounded-2xl shadow-xl p-8">
+          <div className="bg-white/80 backdrop-blur-lg rounded-3xl shadow-xl p-8 border border-green-200 animate-slide-up" style={{ animationDelay: '0.2s' }}>
             <h3 className="text-2xl font-bold text-gray-800 mb-6 text-center">
               📊 Kết Quả
             </h3>
             
             {bmi ? (
               <div className="text-center space-y-6">
-                <div className="bg-blue-50 rounded-xl p-6">
-                  <div className="text-4xl font-bold text-blue-600 mb-2">
+                <div className="bg-green-50 rounded-xl p-6 border border-green-200">
+                  <div className="text-4xl font-bold text-green-600 mb-2 animate-bounce-in">
                     {bmi}
                   </div>
                   <div className="text-lg text-gray-600">Chỉ số BMI</div>
                 </div>
                 
-                <div className={`rounded-xl p-6 ${
-                  bmiCategory === 'Bình thường' ? 'bg-green-50 text-green-800' :
-                  bmiCategory === 'Thiếu cân' || bmiCategory === 'Thiếu cân nghiêm trọng' ? 'bg-yellow-50 text-yellow-800' :
-                  'bg-red-50 text-red-800'
+                <div className={`rounded-xl p-6 border ${
+                  bmiCategory === 'Bình thường' ? 'bg-green-50 text-green-800 border-green-200' :
+                  bmiCategory === 'Thiếu cân' || bmiCategory === 'Thiếu cân nghiêm trọng' ? 'bg-yellow-50 text-yellow-800 border-yellow-200' :
+                  'bg-red-50 text-red-800 border-red-200'
                 }`}>
                   <div className="text-xl font-semibold mb-2">
                     Phân loại: {bmiCategory}
@@ -190,29 +201,25 @@ const IndexHCFB = () => {
               </div>
             ) : (
               <div className="text-center text-gray-500">
-                <div className="text-6xl mb-4">📈</div>
+                <div className="text-6xl mb-4 animate-pulse">📈</div>
                 <p>Nhập đầy đủ thông tin để xem kết quả BMI</p>
               </div>
             )}
           </div>
         </section>
 
-        
-
         {/* Children Profiles Section */}
-        <section className="bg-white rounded-2xl shadow-xl p-8 mb-16">
+        <section className="bg-white/80 backdrop-blur-lg rounded-3xl shadow-xl p-8 mb-16 border border-green-200 animate-slide-up" style={{ animationDelay: '0.4s' }}>
           <h3 className="text-2xl font-bold text-gray-800 mb-8 text-center">
             👨‍👩‍👧‍👦 Hồ Sơ Trẻ Em
           </h3>
           
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
             {/* Child 1 - Minh An */}
-                         <div className="bg-gradient-to-br from-blue-50 to-cyan-50 rounded-2xl p-6 border border-blue-100 hover:shadow-xl transition-all duration-300 hover:-translate-y-2 cursor-pointer group"
+            <div className="bg-gradient-to-br from-blue-50/80 to-cyan-50/80 rounded-2xl p-6 border border-blue-200 hover:shadow-xl transition-all duration-300 hover:-translate-y-2 cursor-pointer group animate-slide-up"
                  onClick={() => navigate('/hcfb/child01')}>
               <div className="text-center mb-4">
-                <div className="w-20 h-20 bg-gradient-to-br from-blue-400 to-blue-600 rounded-full mx-auto mb-4 flex items-center justify-center text-white text-2xl font-bold shadow-lg group-hover:scale-110 transition-transform">
-                  MA
-                </div>
+                <img src="/boy.png" alt="Boy" className="w-20 h-20 mx-auto mb-4 group-hover:scale-110 transition-transform" />
                 <div className="inline-flex items-center px-3 py-1 rounded-full text-xs font-medium bg-green-100 text-green-800">
                   <div className="w-2 h-2 bg-green-500 rounded-full mr-2"></div>
                   Khỏe mạnh
@@ -246,12 +253,10 @@ const IndexHCFB = () => {
             </div>
 
             {/* Child 2 - Thúy Linh */}
-                         <div className="bg-gradient-to-br from-pink-50 to-purple-50 rounded-2xl p-6 border border-pink-100 hover:shadow-xl transition-all duration-300 hover:-translate-y-2 cursor-pointer group"
+            <div className="bg-gradient-to-br from-pink-50/80 to-purple-50/80 rounded-2xl p-6 border border-pink-200 hover:shadow-xl transition-all duration-300 hover:-translate-y-2 cursor-pointer group animate-slide-up" style={{ animationDelay: '0.1s' }}
                  onClick={() => navigate('/hcfb/child02')}>
               <div className="text-center mb-4">
-                <div className="w-20 h-20 bg-gradient-to-br from-pink-400 to-purple-600 rounded-full mx-auto mb-4 flex items-center justify-center text-white text-2xl font-bold shadow-lg group-hover:scale-110 transition-transform">
-                  TL
-                </div>
+                <img src="/girl.png" alt="Girl" className="w-20 h-20 mx-auto mb-4 group-hover:scale-110 transition-transform" />
                 <div className="inline-flex items-center px-3 py-1 rounded-full text-xs font-medium bg-yellow-100 text-yellow-800">
                   <div className="w-2 h-2 bg-yellow-500 rounded-full mr-2"></div>
                   Theo dõi
@@ -285,12 +290,10 @@ const IndexHCFB = () => {
             </div>
 
             {/* Child 3 - Đức Anh */}
-                         <div className="bg-gradient-to-br from-green-50 to-emerald-50 rounded-2xl p-6 border border-green-100 hover:shadow-xl transition-all duration-300 hover:-translate-y-2 cursor-pointer group"
+            <div className="bg-gradient-to-br from-green-50/80 to-emerald-50/80 rounded-2xl p-6 border border-green-200 hover:shadow-xl transition-all duration-300 hover:-translate-y-2 cursor-pointer group animate-slide-up" style={{ animationDelay: '0.2s' }}
                  onClick={() => navigate('/hcfb/child03')}>
               <div className="text-center mb-4">
-                <div className="w-20 h-20 bg-gradient-to-br from-green-400 to-emerald-600 rounded-full mx-auto mb-4 flex items-center justify-center text-white text-2xl font-bold shadow-lg group-hover:scale-110 transition-transform">
-                  DA
-                </div>
+                <img src="/boy.png" alt="Boy" className="w-20 h-20 mx-auto mb-4 group-hover:scale-110 transition-transform" />
                 <div className="inline-flex items-center px-3 py-1 rounded-full text-xs font-medium bg-green-100 text-green-800">
                   <div className="w-2 h-2 bg-green-500 rounded-full mr-2"></div>
                   Rất tốt
@@ -326,19 +329,17 @@ const IndexHCFB = () => {
         </section>
 
         {/* Doctors Profiles Section */}
-        <section className="bg-white rounded-2xl shadow-xl p-8 mb-16">
+        <section className="bg-white/80 backdrop-blur-lg rounded-3xl shadow-xl p-8 mb-16 border border-green-200 animate-slide-up" style={{ animationDelay: '0.6s' }}>
           <h3 className="text-2xl font-bold text-gray-800 mb-8 text-center">
             👨‍⚕️ Hồ Sơ Bác Sĩ
           </h3>
           
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
             {/* Doctor 1 - BS. Nguyễn Thị Mai Anh */}
-            <div className="bg-gradient-to-br from-blue-50 to-cyan-50 rounded-2xl p-6 border border-blue-100 hover:shadow-xl transition-all duration-300 hover:-translate-y-2 cursor-pointer group"
+            <div className="bg-gradient-to-br from-blue-50/80 to-cyan-50/80 rounded-2xl p-6 border border-blue-200 hover:shadow-xl transition-all duration-300 hover:-translate-y-2 cursor-pointer group animate-slide-up"
                  onClick={() => navigate('/hcfb/doctor1')}>
               <div className="text-center mb-4">
-                <div className="w-20 h-20 bg-gradient-to-br from-blue-400 to-blue-600 rounded-full mx-auto mb-4 flex items-center justify-center text-white text-2xl font-bold shadow-lg group-hover:scale-110 transition-transform">
-                  BS
-                </div>
+                <img src="/female_doctor.png" alt="Female Doctor" className="w-20 h-20 mx-auto mb-4 group-hover:scale-110 transition-transform" />
                 <div className="inline-flex items-center px-3 py-1 rounded-full text-xs font-medium bg-green-100 text-green-800">
                   <div className="w-2 h-2 bg-green-500 rounded-full mr-2"></div>
                   Đang khám
@@ -372,12 +373,10 @@ const IndexHCFB = () => {
             </div>
 
             {/* Doctor 2 - BS. Trần Văn Hải */}
-            <div className="bg-gradient-to-br from-purple-50 to-pink-50 rounded-2xl p-6 border border-purple-100 hover:shadow-xl transition-all duration-300 hover:-translate-y-2 cursor-pointer group"
+            <div className="bg-gradient-to-br from-purple-50/80 to-pink-50/80 rounded-2xl p-6 border border-purple-200 hover:shadow-xl transition-all duration-300 hover:-translate-y-2 cursor-pointer group animate-slide-up" style={{ animationDelay: '0.1s' }}
                  onClick={() => navigate('/hcfb/doctor2')}>
               <div className="text-center mb-4">
-                <div className="w-20 h-20 bg-gradient-to-br from-purple-400 to-pink-600 rounded-full mx-auto mb-4 flex items-center justify-center text-white text-2xl font-bold shadow-lg group-hover:scale-110 transition-transform">
-                  TH
-                </div>
+                <img src="/male_doctor.png" alt="Male Doctor" className="w-20 h-20 mx-auto mb-4 group-hover:scale-110 transition-transform" />
                 <div className="inline-flex items-center px-3 py-1 rounded-full text-xs font-medium bg-blue-100 text-blue-800">
                   <div className="w-2 h-2 bg-blue-500 rounded-full mr-2"></div>
                   Sẵn sàng
@@ -411,12 +410,10 @@ const IndexHCFB = () => {
             </div>
 
             {/* Doctor 3 - BS. Lê Thị Minh */}
-            <div className="bg-gradient-to-br from-emerald-50 to-cyan-50 rounded-2xl p-6 border border-emerald-100 hover:shadow-xl transition-all duration-300 hover:-translate-y-2 cursor-pointer group"
+            <div className="bg-gradient-to-br from-emerald-50/80 to-cyan-50/80 rounded-2xl p-6 border border-emerald-200 hover:shadow-xl transition-all duration-300 hover:-translate-y-2 cursor-pointer group animate-slide-up" style={{ animationDelay: '0.2s' }}
                  onClick={() => navigate('/hcfb/doctor3')}>
               <div className="text-center mb-4">
-                <div className="w-20 h-20 bg-gradient-to-br from-emerald-400 to-cyan-600 rounded-full mx-auto mb-4 flex items-center justify-center text-white text-2xl font-bold shadow-lg group-hover:scale-110 transition-transform">
-                  LM
-                </div>
+                <img src="/female_doctor.png" alt="Female Doctor" className="w-20 h-20 mx-auto mb-4 group-hover:scale-110 transition-transform" />
                 <div className="inline-flex items-center px-3 py-1 rounded-full text-xs font-medium bg-red-100 text-red-800">
                   <div className="w-2 h-2 bg-red-500 rounded-full mr-2"></div>
                   Bận
@@ -451,15 +448,15 @@ const IndexHCFB = () => {
           </div>
         </section>
 
-{/* Health Tips */}
-<section className="bg-white rounded-2xl shadow-xl p-8 mb-16">
+        {/* Health Tips */}
+        <section className="bg-white/80 backdrop-blur-lg rounded-3xl shadow-xl p-8 mb-16 border border-green-200 animate-slide-up" style={{ animationDelay: '0.8s' }}>
           <h3 className="text-2xl font-bold text-gray-800 mb-8 text-center">
             💡 Lời Khuyên Sức Khỏe
           </h3>
           
           <div className="grid md:grid-cols-3 gap-6">
-            <div className="text-center p-6 bg-blue-50 rounded-xl">
-              <div className="text-4xl mb-4">🥗</div>
+            <div className="text-center p-6 bg-blue-50/80 rounded-xl border border-blue-200 hover:shadow-lg transition-all duration-300 hover:-translate-y-1">
+              <div className="text-4xl mb-4 animate-bounce">🥗</div>
               <h4 className="text-lg font-semibold text-gray-800 mb-2">
                 Dinh Dưỡng Cân Bằng
               </h4>
@@ -468,8 +465,8 @@ const IndexHCFB = () => {
               </p>
             </div>
 
-            <div className="text-center p-6 bg-green-50 rounded-xl">
-              <div className="text-4xl mb-4">🏃‍♂️</div>
+            <div className="text-center p-6 bg-green-50/80 rounded-xl border border-green-200 hover:shadow-lg transition-all duration-300 hover:-translate-y-1">
+              <div className="text-4xl mb-4 animate-bounce" style={{ animationDelay: '0.5s' }}>🏃‍♂️</div>
               <h4 className="text-lg font-semibold text-gray-800 mb-2">
                 Vận Động Thường Xuyên
               </h4>
@@ -478,8 +475,8 @@ const IndexHCFB = () => {
               </p>
             </div>
 
-            <div className="text-center p-6 bg-purple-50 rounded-xl">
-              <div className="text-4xl mb-4">😴</div>
+            <div className="text-center p-6 bg-purple-50/80 rounded-xl border border-purple-200 hover:shadow-lg transition-all duration-300 hover:-translate-y-1">
+              <div className="text-4xl mb-4 animate-bounce" style={{ animationDelay: '1s' }}>😴</div>
               <h4 className="text-lg font-semibold text-gray-800 mb-2">
                 Ngủ Đủ Giấc
               </h4>
@@ -491,13 +488,13 @@ const IndexHCFB = () => {
         </section>
 
         {/* Age Groups Guide */}
-        <section className="bg-white rounded-2xl shadow-xl p-8">
+        <section className="bg-white/80 backdrop-blur-lg rounded-3xl shadow-xl p-8 border border-green-200 animate-slide-up" style={{ animationDelay: '1s' }}>
           <h3 className="text-2xl font-bold text-gray-800 mb-8 text-center">
             👶 Hướng Dẫn Theo Độ Tuổi
           </h3>
           
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
-            <div className="p-6 border border-gray-200 rounded-xl hover:shadow-lg transition">
+            <div className="p-6 border border-gray-200 rounded-xl hover:shadow-lg transition-all duration-300 hover:-translate-y-1 bg-gradient-to-br from-blue-50/60 to-blue-100/60">
               <h4 className="text-lg font-semibold text-blue-600 mb-3">1-5 tuổi</h4>
               <ul className="text-sm text-gray-600 space-y-2">
                 <li>• Cho ăn đa dạng thực phẩm</li>
@@ -506,7 +503,7 @@ const IndexHCFB = () => {
               </ul>
             </div>
 
-            <div className="p-6 border border-gray-200 rounded-xl hover:shadow-lg transition">
+            <div className="p-6 border border-gray-200 rounded-xl hover:shadow-lg transition-all duration-300 hover:-translate-y-1 bg-gradient-to-br from-green-50/60 to-green-100/60">
               <h4 className="text-lg font-semibold text-green-600 mb-3">6-12 tuổi</h4>
               <ul className="text-sm text-gray-600 space-y-2">
                 <li>• Xây dựng thói quen ăn uống lành mạnh</li>
@@ -515,7 +512,7 @@ const IndexHCFB = () => {
               </ul>
             </div>
 
-            <div className="p-6 border border-gray-200 rounded-xl hover:shadow-lg transition">
+            <div className="p-6 border border-gray-200 rounded-xl hover:shadow-lg transition-all duration-300 hover:-translate-y-1 bg-gradient-to-br from-purple-50/60 to-purple-100/60">
               <h4 className="text-lg font-semibold text-purple-600 mb-3">13-18 tuổi</h4>
               <ul className="text-sm text-gray-600 space-y-2">
                 <li>• Giáo dục về dinh dưỡng</li>
@@ -528,9 +525,12 @@ const IndexHCFB = () => {
       </main>
 
       {/* Footer */}
-      <footer className="bg-gray-800 text-white py-8">
+      <footer className="relative bg-gray-800/90 backdrop-blur-lg text-white py-8 border-t border-green-200">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <div className="text-2xl mb-4">👨‍⚕️👩‍⚕️</div>
+          <div className="flex justify-center items-center mb-4">
+            <img src="/male_doctor.png" alt="Doctor" className="w-12 h-12 mr-4" />
+            <img src="/female_doctor.png" alt="Doctor" className="w-12 h-12" />
+          </div>
           <h4 className="text-lg font-semibold mb-2">Trung Tâm Sức Khỏe Trẻ Em</h4>
           <p className="text-gray-400 mb-4">
             Chăm sóc sức khỏe toàn diện - Tương lai khỏe mạnh cho mọi em bé
