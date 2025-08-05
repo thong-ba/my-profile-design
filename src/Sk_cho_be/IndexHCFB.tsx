@@ -208,125 +208,215 @@ const IndexHCFB = () => {
           </div>
         </section>
 
-        {/* Children Profiles Section */}
-        <section className="bg-white/80 backdrop-blur-lg rounded-3xl shadow-xl p-8 mb-16 border border-green-200 animate-slide-up" style={{ animationDelay: '0.4s' }}>
-          <h3 className="text-2xl font-bold text-gray-800 mb-8 text-center">
-            👨‍👩‍👧‍👦 Hồ Sơ Trẻ Em
-          </h3>
-          
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
-            {/* Child 1 - Minh An */}
-            <div className="bg-gradient-to-br from-blue-50/80 to-cyan-50/80 rounded-2xl p-6 border border-blue-200 hover:shadow-xl transition-all duration-300 hover:-translate-y-2 cursor-pointer group animate-slide-up"
-                 onClick={() => navigate('/hcfb/child01')}>
-              <div className="text-center mb-4">
-                <img src="/boy.png" alt="Boy" className="w-20 h-20 mx-auto mb-4 group-hover:scale-110 transition-transform" />
-                <div className="inline-flex items-center px-3 py-1 rounded-full text-xs font-medium bg-green-100 text-green-800">
-                  <div className="w-2 h-2 bg-green-500 rounded-full mr-2"></div>
-                  Khỏe mạnh
-                </div>
-              </div>
-              
-              <div className="text-center space-y-3">
-                <h4 className="text-xl font-bold text-gray-800 group-hover:text-blue-600 transition-colors">
-                  Nguyễn Minh An
-                </h4>
-                <p className="text-gray-600">7 tuổi • Nam</p>
-                
-                <div className="grid grid-cols-2 gap-3 text-sm">
-                  <div className="bg-white/70 rounded-lg p-2">
-                    <div className="font-semibold text-blue-600">120cm</div>
-                    <div className="text-gray-500">Chiều cao</div>
-                  </div>
-                  <div className="bg-white/70 rounded-lg p-2">
-                    <div className="font-semibold text-blue-600">22.5kg</div>
-                    <div className="text-gray-500">Cân nặng</div>
-                  </div>
-                </div>
-                
-                <div className="pt-4 border-t border-blue-200">
-                  <p className="text-sm text-gray-600 mb-3">Khám gần nhất: 15/12/2024</p>
-                  <button className="w-full bg-blue-600 text-white py-2 px-4 rounded-lg hover:bg-blue-700 transition-colors font-medium group-hover:scale-105 transform duration-200">
-                    Xem hồ sơ chi tiết
-                  </button>
-                </div>
-              </div>
-            </div>
+                 {/* Children Profiles Section */}
+         <section className="bg-white/80 backdrop-blur-lg rounded-3xl shadow-xl p-8 mb-16 border border-green-200 animate-slide-up" style={{ animationDelay: '0.4s' }}>
+           <h3 className="text-2xl font-bold text-gray-800 mb-8 text-center">
+             👨‍👩‍👧‍👦 Hồ Sơ Trẻ Em
+           </h3>
+           
+           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+             {/* Child 1 - Minh An */}
+             <div className="bg-gradient-to-br from-blue-50/80 to-cyan-50/80 rounded-2xl p-6 border border-blue-200 hover:shadow-xl transition-all duration-300 hover:-translate-y-2 cursor-pointer group animate-slide-up"
+                  onClick={() => navigate('/hcfb/child01')}>
+               <div className="text-center mb-4">
+                 <img src="/boy.png" alt="Boy" className="w-20 h-20 mx-auto mb-4 group-hover:scale-110 transition-transform" />
+                 <div className="inline-flex items-center px-3 py-1 rounded-full text-xs font-medium bg-green-100 text-green-800">
+                   <div className="w-2 h-2 bg-green-500 rounded-full mr-2"></div>
+                   Khỏe mạnh
+                 </div>
+               </div>
+               
+               <div className="text-center space-y-3">
+                 <h4 className="text-xl font-bold text-gray-800 group-hover:text-blue-600 transition-colors">
+                   Nguyễn Minh An
+                 </h4>
+                 <p className="text-gray-600">7 tuổi • Nam</p>
+                 
+                 <div className="grid grid-cols-2 gap-3 text-sm">
+                   <div className="bg-white/70 rounded-lg p-2">
+                     <div className="font-semibold text-blue-600">120cm</div>
+                     <div className="text-gray-500">Chiều cao</div>
+                   </div>
+                   <div className="bg-white/70 rounded-lg p-2">
+                     <div className="font-semibold text-blue-600">22.5kg</div>
+                     <div className="text-gray-500">Cân nặng</div>
+                   </div>
+                 </div>
+                 
+                 <div className="pt-4 border-t border-blue-200">
+                   <p className="text-sm text-gray-600 mb-3">Khám gần nhất: 15/12/2024</p>
+                   <button className="w-full bg-blue-600 text-white py-2 px-4 rounded-lg hover:bg-blue-700 transition-colors font-medium group-hover:scale-105 transform duration-200">
+                     Xem hồ sơ chi tiết
+                   </button>
+                 </div>
+               </div>
+             </div>
 
-            {/* Child 2 - Thúy Linh */}
-            <div className="bg-gradient-to-br from-pink-50/80 to-purple-50/80 rounded-2xl p-6 border border-pink-200 hover:shadow-xl transition-all duration-300 hover:-translate-y-2 cursor-pointer group animate-slide-up" style={{ animationDelay: '0.1s' }}
-                 onClick={() => navigate('/hcfb/child02')}>
-              <div className="text-center mb-4">
-                <img src="/girl.png" alt="Girl" className="w-20 h-20 mx-auto mb-4 group-hover:scale-110 transition-transform" />
-                <div className="inline-flex items-center px-3 py-1 rounded-full text-xs font-medium bg-yellow-100 text-yellow-800">
-                  <div className="w-2 h-2 bg-yellow-500 rounded-full mr-2"></div>
-                  Theo dõi
-                </div>
-              </div>
-              
-              <div className="text-center space-y-3">
-                <h4 className="text-xl font-bold text-gray-800 group-hover:text-pink-600 transition-colors">
-                  Trần Thúy Linh
-                </h4>
-                <p className="text-gray-600">12 tuổi • Nữ</p>
-                
-                <div className="grid grid-cols-2 gap-3 text-sm">
-                  <div className="bg-white/70 rounded-lg p-2">
-                    <div className="font-semibold text-pink-600">145cm</div>
-                    <div className="text-gray-500">Chiều cao</div>
-                  </div>
-                  <div className="bg-white/70 rounded-lg p-2">
-                    <div className="font-semibold text-pink-600">38.2kg</div>
-                    <div className="text-gray-500">Cân nặng</div>
-                  </div>
-                </div>
-                
-                <div className="pt-4 border-t border-pink-200">
-                  <p className="text-sm text-gray-600 mb-3">Khám gần nhất: 20/12/2024</p>
-                  <button className="w-full bg-pink-600 text-white py-2 px-4 rounded-lg hover:bg-pink-700 transition-colors font-medium group-hover:scale-105 transform duration-200">
-                    Xem hồ sơ chi tiết
-                  </button>
-                </div>
-              </div>
-            </div>
+             {/* Child 2 - Thúy Linh */}
+             <div className="bg-gradient-to-br from-pink-50/80 to-purple-50/80 rounded-2xl p-6 border border-pink-200 hover:shadow-xl transition-all duration-300 hover:-translate-y-2 cursor-pointer group animate-slide-up" style={{ animationDelay: '0.1s' }}
+                  onClick={() => navigate('/hcfb/child02')}>
+               <div className="text-center mb-4">
+                 <img src="/girl.png" alt="Girl" className="w-20 h-20 mx-auto mb-4 group-hover:scale-110 transition-transform" />
+                 <div className="inline-flex items-center px-3 py-1 rounded-full text-xs font-medium bg-yellow-100 text-yellow-800">
+                   <div className="w-2 h-2 bg-yellow-500 rounded-full mr-2"></div>
+                   Theo dõi
+                 </div>
+               </div>
+               
+               <div className="text-center space-y-3">
+                 <h4 className="text-xl font-bold text-gray-800 group-hover:text-pink-600 transition-colors">
+                   Trần Thúy Linh
+                 </h4>
+                 <p className="text-gray-600">12 tuổi • Nữ</p>
+                 
+                 <div className="grid grid-cols-2 gap-3 text-sm">
+                   <div className="bg-white/70 rounded-lg p-2">
+                     <div className="font-semibold text-pink-600">145cm</div>
+                     <div className="text-gray-500">Chiều cao</div>
+                   </div>
+                   <div className="bg-white/70 rounded-lg p-2">
+                     <div className="font-semibold text-pink-600">38.2kg</div>
+                     <div className="text-gray-500">Cân nặng</div>
+                   </div>
+                 </div>
+                 
+                 <div className="pt-4 border-t border-pink-200">
+                   <p className="text-sm text-gray-600 mb-3">Khám gần nhất: 20/12/2024</p>
+                   <button className="w-full bg-pink-600 text-white py-2 px-4 rounded-lg hover:bg-pink-700 transition-colors font-medium group-hover:scale-105 transform duration-200">
+                     Xem hồ sơ chi tiết
+                   </button>
+                 </div>
+               </div>
+             </div>
 
-            {/* Child 3 - Đức Anh */}
-            <div className="bg-gradient-to-br from-green-50/80 to-emerald-50/80 rounded-2xl p-6 border border-green-200 hover:shadow-xl transition-all duration-300 hover:-translate-y-2 cursor-pointer group animate-slide-up" style={{ animationDelay: '0.2s' }}
-                 onClick={() => navigate('/hcfb/child03')}>
-              <div className="text-center mb-4">
-                <img src="/boy.png" alt="Boy" className="w-20 h-20 mx-auto mb-4 group-hover:scale-110 transition-transform" />
-                <div className="inline-flex items-center px-3 py-1 rounded-full text-xs font-medium bg-green-100 text-green-800">
-                  <div className="w-2 h-2 bg-green-500 rounded-full mr-2"></div>
-                  Rất tốt
-                </div>
-              </div>
-              
-              <div className="text-center space-y-3">
-                <h4 className="text-xl font-bold text-gray-800 group-hover:text-green-600 transition-colors">
-                  Lê Đức Anh
-                </h4>
-                <p className="text-gray-600">15 tuổi • Nam</p>
-                
-                <div className="grid grid-cols-2 gap-3 text-sm">
-                  <div className="bg-white/70 rounded-lg p-2">
-                    <div className="font-semibold text-green-600">165cm</div>
-                    <div className="text-gray-500">Chiều cao</div>
-                  </div>
-                  <div className="bg-white/70 rounded-lg p-2">
-                    <div className="font-semibold text-green-600">55.8kg</div>
-                    <div className="text-gray-500">Cân nặng</div>
-                  </div>
-                </div>
-                
-                <div className="pt-4 border-t border-green-200">
-                  <p className="text-sm text-gray-600 mb-3">Khám gần nhất: 18/12/2024</p>
-                  <button className="w-full bg-green-600 text-white py-2 px-4 rounded-lg hover:bg-green-700 transition-colors font-medium group-hover:scale-105 transform duration-200">
-                    Xem hồ sơ chi tiết
-                  </button>
-                </div>
-              </div>
-            </div>
-          </div>
-        </section>
+             {/* Child 3 - Đức Anh */}
+             <div className="bg-gradient-to-br from-green-50/80 to-emerald-50/80 rounded-2xl p-6 border border-green-200 hover:shadow-xl transition-all duration-300 hover:-translate-y-2 cursor-pointer group animate-slide-up" style={{ animationDelay: '0.2s' }}
+                  onClick={() => navigate('/hcfb/child03')}>
+               <div className="text-center mb-4">
+                 <img src="/boy.png" alt="Boy" className="w-20 h-20 mx-auto mb-4 group-hover:scale-110 transition-transform" />
+                 <div className="inline-flex items-center px-3 py-1 rounded-full text-xs font-medium bg-green-100 text-green-800">
+                   <div className="w-2 h-2 bg-green-500 rounded-full mr-2"></div>
+                   Rất tốt
+                 </div>
+               </div>
+               
+               <div className="text-center space-y-3">
+                 <h4 className="text-xl font-bold text-gray-800 group-hover:text-green-600 transition-colors">
+                   Lê Đức Anh
+                 </h4>
+                 <p className="text-gray-600">15 tuổi • Nam</p>
+                 
+                 <div className="grid grid-cols-2 gap-3 text-sm">
+                   <div className="bg-white/70 rounded-lg p-2">
+                     <div className="font-semibold text-green-600">165cm</div>
+                     <div className="text-gray-500">Chiều cao</div>
+                   </div>
+                   <div className="bg-white/70 rounded-lg p-2">
+                     <div className="font-semibold text-green-600">55.8kg</div>
+                     <div className="text-gray-500">Cân nặng</div>
+                   </div>
+                 </div>
+                 
+                 <div className="pt-4 border-t border-green-200">
+                   <p className="text-sm text-gray-600 mb-3">Khám gần nhất: 18/12/2024</p>
+                   <button className="w-full bg-green-600 text-white py-2 px-4 rounded-lg hover:bg-green-700 transition-colors font-medium group-hover:scale-105 transform duration-200">
+                     Xem hồ sơ chi tiết
+                   </button>
+                 </div>
+               </div>
+             </div>
+           </div>
+         </section>
+
+         {/* Parent Dashboard Section */}
+         <section className="bg-white/80 backdrop-blur-lg rounded-3xl shadow-xl p-8 mb-16 border border-green-200 animate-slide-up" style={{ animationDelay: '0.6s' }}>
+           <h3 className="text-2xl font-bold text-gray-800 mb-8 text-center">
+             👨‍👩‍👧‍👦 Khu Vực Phụ Huynh
+           </h3>
+           
+           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+             {/* Parent Dashboard Card */}
+             <div className="bg-gradient-to-br from-blue-50/80 to-cyan-50/80 rounded-2xl p-6 border border-blue-200 hover:shadow-xl transition-all duration-300 hover:-translate-y-2 cursor-pointer group animate-slide-up col-span-full lg:col-span-2"
+                  onClick={() => navigate('/hcfb/parent01')}>
+               <div className="flex items-center space-x-6">
+                 <div className="text-center">
+                   <div className="text-6xl mb-4 animate-bounce">👨‍👩‍👧‍👦</div>
+                   <div className="inline-flex items-center px-3 py-1 rounded-full text-xs font-medium bg-green-100 text-green-800">
+                     <div className="w-2 h-2 bg-green-500 rounded-full mr-2"></div>
+                     Mới cập nhật
+                   </div>
+                 </div>
+                 
+                 <div className="flex-1">
+                   <h4 className="text-2xl font-bold text-gray-800 group-hover:text-blue-600 transition-colors mb-3">
+                     Phụ Huynh Dashboard
+                   </h4>
+                   <p className="text-gray-600 mb-4">
+                     Theo dõi sức khỏe con cái, nhận thông báo từ bác sĩ và quản lý lịch hẹn khám bệnh một cách dễ dàng
+                   </p>
+                   
+                   <div className="grid grid-cols-3 gap-4 text-sm mb-4">
+                     <div className="bg-white/70 rounded-lg p-3">
+                       <div className="font-semibold text-blue-600">3</div>
+                       <div className="text-gray-500">Trẻ em</div>
+                     </div>
+                     <div className="bg-white/70 rounded-lg p-3">
+                       <div className="font-semibold text-blue-600">5</div>
+                       <div className="text-gray-500">Thông báo</div>
+                     </div>
+                     <div className="bg-white/70 rounded-lg p-3">
+                       <div className="font-semibold text-blue-600">2</div>
+                       <div className="text-gray-500">Lịch hẹn</div>
+                     </div>
+                   </div>
+                   
+                   <div className="pt-4 border-t border-blue-200">
+                     <p className="text-sm text-gray-600 mb-3">Tính năng mới: Theo dõi BMI, thông báo từ bác sĩ</p>
+                     <button className="w-full bg-blue-600 text-white py-3 px-6 rounded-lg hover:bg-blue-700 transition-colors font-medium group-hover:scale-105 transform duration-200">
+                       Truy cập Dashboard
+                     </button>
+                   </div>
+                 </div>
+               </div>
+             </div>
+
+             {/* Quick Parent Actions */}
+             <div className="space-y-4">
+               <div className="bg-gradient-to-br from-purple-50/80 to-pink-50/80 rounded-2xl p-6 border border-purple-200 hover:shadow-lg transition-all duration-300 hover:-translate-y-1">
+                 <div className="text-center mb-4">
+                   <div className="text-4xl mb-2">📱</div>
+                   <h4 className="text-lg font-semibold text-gray-800 mb-2">Ứng dụng di động</h4>
+                   <p className="text-sm text-gray-600">Tải app để theo dõi sức khỏe con mọi lúc mọi nơi</p>
+                 </div>
+                 <button className="w-full bg-purple-600 text-white py-2 px-4 rounded-lg hover:bg-purple-700 transition-colors text-sm">
+                   Tải App
+                 </button>
+               </div>
+
+               <div className="bg-gradient-to-br from-green-50/80 to-emerald-50/80 rounded-2xl p-6 border border-green-200 hover:shadow-lg transition-all duration-300 hover:-translate-y-1">
+                 <div className="text-center mb-4">
+                   <div className="text-4xl mb-2">📞</div>
+                   <h4 className="text-lg font-semibold text-gray-800 mb-2">Hỗ trợ 24/7</h4>
+                   <p className="text-sm text-gray-600">Liên hệ với chúng tôi bất cứ khi nào cần</p>
+                 </div>
+                 <button className="w-full bg-green-600 text-white py-2 px-4 rounded-lg hover:bg-green-700 transition-colors text-sm">
+                   Liên hệ ngay
+                 </button>
+               </div>
+
+               <div className="bg-gradient-to-br from-orange-50/80 to-red-50/80 rounded-2xl p-6 border border-orange-200 hover:shadow-lg transition-all duration-300 hover:-translate-y-1">
+                 <div className="text-center mb-4">
+                   <div className="text-4xl mb-2">📚</div>
+                   <h4 className="text-lg font-semibold text-gray-800 mb-2">Tài liệu hướng dẫn</h4>
+                   <p className="text-sm text-gray-600">Tìm hiểu thêm về chăm sóc sức khỏe trẻ em</p>
+                 </div>
+                 <button className="w-full bg-orange-600 text-white py-2 px-4 rounded-lg hover:bg-orange-700 transition-colors text-sm">
+                   Xem tài liệu
+                 </button>
+               </div>
+             </div>
+           </div>
+         </section>
 
         {/* Doctors Profiles Section */}
         <section className="bg-white/80 backdrop-blur-lg rounded-3xl shadow-xl p-8 mb-16 border border-green-200 animate-slide-up" style={{ animationDelay: '0.6s' }}>
@@ -522,21 +612,23 @@ const IndexHCFB = () => {
             </div>
           </div>
         </section>
+
+        
       </main>
 
       {/* Footer */}
-      <footer className="relative bg-gray-800/90 backdrop-blur-lg text-white py-8 border-t border-green-200">
+      <footer className="relative py-8 border-t border-green-200" style={{ backgroundColor: '#FFF4A4' }}>
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <div className="flex justify-center items-center mb-4">
             <img src="/male_doctor.png" alt="Doctor" className="w-12 h-12 mr-4" />
             <img src="/female_doctor.png" alt="Doctor" className="w-12 h-12" />
           </div>
-          <h4 className="text-lg font-semibold mb-2">Trung Tâm Sức Khỏe Trẻ Em</h4>
-          <p className="text-gray-400 mb-4">
+          <h4 className="text-lg font-semibold mb-2 text-black">Trung Tâm Sức Khỏe Trẻ Em</h4>
+          <p className="text-black mb-4">
             Chăm sóc sức khỏe toàn diện - Tương lai khỏe mạnh cho mọi em bé
           </p>
           <div className="border-t border-gray-700 pt-4">
-            <p className="text-sm text-gray-500">
+            <p className="text-sm text-black">
               © 2024 - Luôn tham khảo ý kiến bác sĩ chuyên khoa để có lời khuyên tốt nhất
             </p>
           </div>

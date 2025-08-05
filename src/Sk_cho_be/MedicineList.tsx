@@ -23,6 +23,23 @@ const MedicineList = () => {
   const [currentPage, setCurrentPage] = useState(1);
   const [searchTerm, setSearchTerm] = useState('');
   const [selectedCategory, setSelectedCategory] = useState('');
+  const [showAddModal, setShowAddModal] = useState(false);
+  const [newMedicine, setNewMedicine] = useState({
+    medicine_id: '',
+    name: '',
+    active_ingredient: '',
+    category: '',
+    dosage_form: '',
+    strength: '',
+    unit: '',
+    manufacturer: '',
+    supplier_id: '',
+    expiry_date: '',
+    barcode: '',
+    stock_quantity: 0,
+    price: 0,
+    notes: ''
+  });
   const itemsPerPage = 10;
 
   // Dữ liệu mẫu 50 loại thuốc
@@ -532,6 +549,53 @@ const MedicineList = () => {
     return { text: 'Còn hàng', color: 'bg-green-100 text-green-800' };
   };
 
+  // Hàm tạo ID thuốc mới
+  const generateMedicineId = () => {
+    const lastId = medicinesData[medicinesData.length - 1]?.medicine_id || 'MED000';
+    const lastNumber = parseInt(lastId.replace('MED', ''));
+    return `MED${String(lastNumber + 1).padStart(3, '0')}`;
+  };
+
+  // Hàm xử lý thêm thuốc mới
+  const handleAddMedicine = () => {
+    if (newMedicine.name && newMedicine.active_ingredient && newMedicine.category) {
+      const medicineToAdd = {
+        ...newMedicine,
+        medicine_id: generateMedicineId()
+      };
+      
+      // Trong thực tế, đây sẽ là API call
+      console.log('Thêm thuốc mới:', medicineToAdd);
+      
+      // Reset form và đóng modal
+      setNewMedicine({
+        medicine_id: '',
+        name: '',
+        active_ingredient: '',
+        category: '',
+        dosage_form: '',
+        strength: '',
+        unit: '',
+        manufacturer: '',
+        supplier_id: '',
+        expiry_date: '',
+        barcode: '',
+        stock_quantity: 0,
+        price: 0,
+        notes: ''
+      });
+      setShowAddModal(false);
+    }
+  };
+
+  // Hàm xử lý thay đổi input
+  const handleInputChange = (field: string, value: string | number) => {
+    setNewMedicine(prev => ({
+      ...prev,
+      [field]: value
+    }));
+  };
+
   return (
     <div className="min-h-screen bg-gradient-to-br from-blue-50 to-green-50">
       {/* Header */}
@@ -594,7 +658,10 @@ const MedicineList = () => {
             </div>
 
             <div className="flex items-end">
-              <button className="w-full bg-blue-600 text-white py-2 px-4 rounded-lg hover:bg-blue-700 transition-colors font-medium">
+              <button 
+                onClick={() => setShowAddModal(true)}
+                className="w-full bg-blue-600 text-white py-2 px-4 rounded-lg hover:bg-blue-700 transition-colors font-medium"
+              >
                 Thêm thuốc mới
               </button>
             </div>
@@ -727,6 +794,238 @@ const MedicineList = () => {
           </div>
         </section>
       </main>
+
+      {/* Add Medicine Modal */}
+      {showAddModal && (
+        <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50">
+          <div className="bg-white rounded-2xl shadow-2xl max-w-4xl w-full mx-4 max-h-[90vh] overflow-y-auto">
+            {/* Modal Header */}
+            <div className="flex justify-between items-center p-6 border-b border-gray-200">
+              <h2 className="text-2xl font-bold text-gray-800">
+                💊 Thêm Thuốc Mới
+              </h2>
+              <button
+                onClick={() => setShowAddModal(false)}
+                className="text-gray-400 hover:text-gray-600 transition-colors"
+              >
+                <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
+                </svg>
+              </button>
+            </div>
+
+            {/* Modal Body */}
+            <div className="p-6">
+              <div className="grid md:grid-cols-2 gap-6">
+                {/* Thông tin cơ bản */}
+                <div className="space-y-4">
+                  <h3 className="text-lg font-semibold text-gray-700 mb-4">Thông tin cơ bản</h3>
+                  
+                  <div>
+                    <label className="block text-sm font-medium text-gray-700 mb-2">
+                      Tên thuốc <span className="text-red-500">*</span>
+                    </label>
+                    <input
+                      type="text"
+                      value={newMedicine.name}
+                      onChange={(e) => handleInputChange('name', e.target.value)}
+                      className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+                      placeholder="Ví dụ: Paracetamol 500mg"
+                    />
+                  </div>
+
+                  <div>
+                    <label className="block text-sm font-medium text-gray-700 mb-2">
+                      Hoạt chất <span className="text-red-500">*</span>
+                    </label>
+                    <input
+                      type="text"
+                      value={newMedicine.active_ingredient}
+                      onChange={(e) => handleInputChange('active_ingredient', e.target.value)}
+                      className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+                      placeholder="Ví dụ: Paracetamol"
+                    />
+                  </div>
+
+                  <div>
+                    <label className="block text-sm font-medium text-gray-700 mb-2">
+                      Danh mục <span className="text-red-500">*</span>
+                    </label>
+                    <select
+                      value={newMedicine.category}
+                      onChange={(e) => handleInputChange('category', e.target.value)}
+                      className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+                    >
+                      <option value="">Chọn danh mục</option>
+                      {categories.map(category => (
+                        <option key={category} value={category}>{category}</option>
+                      ))}
+                    </select>
+                  </div>
+
+                  <div className="grid grid-cols-2 gap-4">
+                    <div>
+                      <label className="block text-sm font-medium text-gray-700 mb-2">
+                        Dạng bào chế
+                      </label>
+                      <input
+                        type="text"
+                        value={newMedicine.dosage_form}
+                        onChange={(e) => handleInputChange('dosage_form', e.target.value)}
+                        className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+                        placeholder="Ví dụ: Viên nén"
+                      />
+                    </div>
+                    <div>
+                      <label className="block text-sm font-medium text-gray-700 mb-2">
+                        Hàm lượng
+                      </label>
+                      <input
+                        type="text"
+                        value={newMedicine.strength}
+                        onChange={(e) => handleInputChange('strength', e.target.value)}
+                        className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+                        placeholder="Ví dụ: 500mg"
+                      />
+                    </div>
+                  </div>
+                </div>
+
+                {/* Thông tin nhà sản xuất và cung cấp */}
+                <div className="space-y-4">
+                  <h3 className="text-lg font-semibold text-gray-700 mb-4">Thông tin sản xuất</h3>
+                  
+                  <div>
+                    <label className="block text-sm font-medium text-gray-700 mb-2">
+                      Nhà sản xuất
+                    </label>
+                    <input
+                      type="text"
+                      value={newMedicine.manufacturer}
+                      onChange={(e) => handleInputChange('manufacturer', e.target.value)}
+                      className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+                      placeholder="Ví dụ: Hà Tây Pharma"
+                    />
+                  </div>
+
+                  <div>
+                    <label className="block text-sm font-medium text-gray-700 mb-2">
+                      Mã nhà cung cấp
+                    </label>
+                    <input
+                      type="text"
+                      value={newMedicine.supplier_id}
+                      onChange={(e) => handleInputChange('supplier_id', e.target.value)}
+                      className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+                      placeholder="Ví dụ: SUP001"
+                    />
+                  </div>
+
+                  <div>
+                    <label className="block text-sm font-medium text-gray-700 mb-2">
+                      Mã vạch
+                    </label>
+                    <input
+                      type="text"
+                      value={newMedicine.barcode}
+                      onChange={(e) => handleInputChange('barcode', e.target.value)}
+                      className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+                      placeholder="Ví dụ: 8934567890123"
+                    />
+                  </div>
+
+                  <div className="grid grid-cols-2 gap-4">
+                    <div>
+                      <label className="block text-sm font-medium text-gray-700 mb-2">
+                        Đơn vị
+                      </label>
+                      <input
+                        type="text"
+                        value={newMedicine.unit}
+                        onChange={(e) => handleInputChange('unit', e.target.value)}
+                        className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+                        placeholder="Ví dụ: Viên"
+                      />
+                    </div>
+                    <div>
+                      <label className="block text-sm font-medium text-gray-700 mb-2">
+                        Hạn sử dụng
+                      </label>
+                      <input
+                        type="date"
+                        value={newMedicine.expiry_date}
+                        onChange={(e) => handleInputChange('expiry_date', e.target.value)}
+                        className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+                      />
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              {/* Thông tin kho và giá */}
+              <div className="mt-6 space-y-4">
+                <h3 className="text-lg font-semibold text-gray-700 mb-4">Thông tin kho và giá</h3>
+                
+                <div className="grid md:grid-cols-3 gap-4">
+                  <div>
+                    <label className="block text-sm font-medium text-gray-700 mb-2">
+                      Số lượng tồn kho
+                    </label>
+                    <input
+                      type="number"
+                      value={newMedicine.stock_quantity}
+                      onChange={(e) => handleInputChange('stock_quantity', parseInt(e.target.value) || 0)}
+                      className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+                      placeholder="0"
+                    />
+                  </div>
+                  <div>
+                    <label className="block text-sm font-medium text-gray-700 mb-2">
+                      Giá (VNĐ)
+                    </label>
+                    <input
+                      type="number"
+                      value={newMedicine.price}
+                      onChange={(e) => handleInputChange('price', parseInt(e.target.value) || 0)}
+                      className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+                      placeholder="0"
+                    />
+                  </div>
+                  <div>
+                    <label className="block text-sm font-medium text-gray-700 mb-2">
+                      Ghi chú
+                    </label>
+                    <input
+                      type="text"
+                      value={newMedicine.notes}
+                      onChange={(e) => handleInputChange('notes', e.target.value)}
+                      className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+                      placeholder="Thông tin bổ sung..."
+                    />
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            {/* Modal Footer */}
+            <div className="flex justify-end space-x-4 p-6 border-t border-gray-200">
+              <button
+                onClick={() => setShowAddModal(false)}
+                className="px-6 py-2 border border-gray-300 text-gray-700 rounded-lg hover:bg-gray-50 transition-colors"
+              >
+                Hủy
+              </button>
+              <button
+                onClick={handleAddMedicine}
+                disabled={!newMedicine.name || !newMedicine.active_ingredient || !newMedicine.category}
+                className="px-6 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition-colors disabled:opacity-50 disabled:cursor-not-allowed"
+              >
+                Thêm thuốc
+              </button>
+            </div>
+          </div>
+        </div>
+      )}
     </div>
   );
 };

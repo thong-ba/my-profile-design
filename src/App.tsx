@@ -8,6 +8,7 @@ import Doctor1 from './Sk_cho_be/Doctor1'
 import Doctor2 from './Sk_cho_be/Doctor2'
 import Doctor3 from './Sk_cho_be/Doctor3'
 import MedicineList from './Sk_cho_be/MedicineList'
+import Parent01 from './Sk_cho_be/Parent01'
 
 function App() {
   return (
@@ -29,6 +30,9 @@ function App() {
           
           {/* Medicine Management */}
           <Route path="/hcfb/medicine-list" element={<MedicineList />} />
+          
+          {/* Parent Dashboard */}
+          <Route path="/hcfb/parent01" element={<Parent01 />} />
         
 
       </Routes>
