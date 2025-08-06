@@ -9,6 +9,7 @@ import Doctor2 from './Sk_cho_be/Doctor2'
 import Doctor3 from './Sk_cho_be/Doctor3'
 import MedicineList from './Sk_cho_be/MedicineList'
 import Parent01 from './Sk_cho_be/Parent01'
+import IndexEComerece from './Ban_hang/IndexEComerece'
 
 function App() {
   return (
@@ -33,6 +34,9 @@ function App() {
           
           {/* Parent Dashboard */}
           <Route path="/hcfb/parent01" element={<Parent01 />} />
+
+          {/* E-commerce */}
+          <Route path="/ecommerce" element={<IndexEComerece />} />
         
 
       </Routes>

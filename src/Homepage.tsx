@@ -588,7 +588,6 @@ const Homepage = () => {
                   <span className="text-2xl">🛒</span>
                 </div>
               </div>
-              
               <div className="p-8">
                 <h3 className="text-2xl font-bold text-gray-800 mb-3 group-hover:text-green-600 transition-colors">
                   E-commerce Platform
@@ -596,7 +595,6 @@ const Homepage = () => {
                 <p className="text-gray-600 mb-6 leading-relaxed">
                   Nền tảng thương mại điện tử với tính năng thanh toán, quản lý đơn hàng và dashboard admin hoàn chỉnh
                 </p>
-                
                 <div className="flex flex-wrap gap-2 mb-6">
                   {[
                     { name: 'Vue.js', bg: 'bg-green-100', text: 'text-green-800' },
@@ -608,13 +606,15 @@ const Homepage = () => {
                     </span>
                   ))}
                 </div>
-                
                 <div className="flex space-x-4">
-                  <button className="flex-1 bg-gradient-to-r from-green-600 to-emerald-600 text-white font-semibold py-3 px-6 rounded-2xl hover:shadow-lg transition-all duration-300 hover:scale-105">
-                    Demo
-                  </button>
-                  <button className="px-6 py-3 border-2 border-gray-300 text-gray-700 font-semibold rounded-2xl hover:border-green-400 hover:text-green-600 transition-all duration-300">
-                    GitHub
+                  <button 
+                    onClick={() => navigate('/ecommerce')}
+                    className="flex-1 bg-gradient-to-r from-green-600 to-emerald-600 text-white font-semibold py-3 px-6 rounded-2xl hover:shadow-lg transition-all duration-300 hover:scale-105 flex items-center justify-center space-x-2"
+                  >
+                    <span>Demo Live</span>
+                    <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
+                    </svg>
                   </button>
                 </div>
               </div>

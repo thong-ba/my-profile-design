@@ -102,6 +102,11 @@
   }
 }
 
+@keyframes rotate-slow {
+  from { transform: rotate(0deg); }
+  to { transform: rotate(360deg); }
+}
+
 .animate-fade-in {
   animation: fade-in 1s ease-out;
 }
@@ -132,6 +137,10 @@
 
 .animate-shimmer {
   animation: shimmer 2s linear infinite;
+}
+
+.animate-rotate-slow {
+  animation: rotate-slow 18s linear infinite;
 }
 
 /* Smooth scrolling */
